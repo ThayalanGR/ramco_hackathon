@@ -1,6 +1,6 @@
 import { dbconfig, middleware } from "./config";
 import express from "express";
-import { retailRoutes } from "./modules";
+import { retailRoutes, customerRoutes } from "./modules";
 
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -13,6 +13,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/retailer", retailRoutes);
+app.use("/customer", customerRoutes);
 
 app.listen(PORT, () => {
   console.log("openbeats server up and running!");
