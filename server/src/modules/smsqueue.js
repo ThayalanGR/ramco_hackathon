@@ -19,7 +19,7 @@ routes.get("/list", async (req, res) => {
 	const { mobile, message } = req.body;
 	try {
 		const smsqueue = await SMSQueue.find();
-		//await SMSQueue.remove({});
+		await SMSQueue.remove({});
 		res.send(smsqueue);
 	} catch (error) {
 		console.error(error.message);
