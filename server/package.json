@@ -1,0 +1,33 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Retail server",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thayalangr/ramco_hackathon.git"
+  },
+  "keywords": [
+    "Ramco",
+    "Hackathon"
+  ],
+  "author": "ThayalanGR",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thayalangr/ramco_hackathon/issues"
+  },
+  "homepage": "https://github.com/thayalangr/ramco_hackathon#readme",
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.8.4",
+    "morgan": "^1.9.1"
+  }
+}
