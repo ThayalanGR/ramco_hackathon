@@ -18,13 +18,22 @@ routes.get("/getall", (req, res) => {
   });
 });
 
+routes.get("/getid/:name", async (req, res) => {
+  const name = req.params.name;
+  let { _id } = await Retailer.findOne({ shortLink: name });
+  res.send({ retailerId: _id });
+});
+
 routes.post("/create", (req, res) => {
   const { retailerName, emailId, mobileNo } = req.body;
   const retailer = new Retailer({
     retailerName,
     emailId,
     mobileNo,
-    shortLink: retailerName.trim().replace(/[^\w]/gi, "").toLowerCase()
+    shortLink: retailerName
+      .trim()
+      .replace(/[^\w]/gi, "")
+      .toLowerCase()
   });
 
   retailer.save(function(err, docs) {
