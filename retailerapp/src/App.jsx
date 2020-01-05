@@ -7,8 +7,8 @@ export default class App extends Component {
     return (
       <Fragment>
         <Switch>
-          <Route component={Home} exact path="/" />
-          <Route component={Auth} path="/auth" />
+          <Route component={Auth} exact path="/auth" />
+          <Route component={Home} exact path="/*" />
         </Switch>
       </Fragment>
     );

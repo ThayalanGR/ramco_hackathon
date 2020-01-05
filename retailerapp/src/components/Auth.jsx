@@ -17,6 +17,14 @@ class Auth extends Component {
     this.Register = this.Register.bind(this);
   }
 
+  // lifecycles
+  componentWillMount() {
+    let isAuthenticated = localStorage.getItem("retailerDetails") || null;
+    if (isAuthenticated) {
+      this.props.history.push("/");
+    }
+  }
+
   // uis
   Login() {
     return (
@@ -45,11 +53,7 @@ class Auth extends Component {
             type="password"
           />
         </div>
-        <div className="remaind-me">
-          <input type="checkbox" name="rememberme" />
-          Remember Me
-        </div>
-        <button type="submit" className="native-login-button cursor-pointer">
+        <button type="submit" className="native-login-button cursor-pointer mt-4">
           Login
         </button>
         <div className="forgot-password-holder cursor-pointer">
@@ -75,7 +79,7 @@ class Auth extends Component {
   Register() {
     return (
       <form
-        className={`register-holder ${
+        className={`register-holder text-center ${
           !this.state.displayRegister ? "hide-me" : ""
         }`}
         onSubmit={e => {

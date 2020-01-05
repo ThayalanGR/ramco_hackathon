@@ -73,6 +73,7 @@
   justify-content: center;
   width: 100%;
   height: 100%;
+  text-align: center;
   flex-direction: column;
 }
 
@@ -115,13 +116,16 @@
 }
 
 .remaind-me {
+  width: 200px;
   margin-bottom: 20px;
+  font-size: 14px;
   display: flex;
   align-items: center;
-  font-size: 14px;
+  justify-content: flex-start;
+
 }
 
-.remaind-me > input {
+.remaind-me > div > input {
   margin-right: 10px;
   transform: scale(1);
   border: none;
