@@ -1,6 +1,9 @@
 import { dbconfig, middleware } from "./config";
 import express from "express";
-import { retailRoutes, customerRoutes, authRoutes } from "./modules";
+import { retailRoutes, customerRoutes, smsRoutes, authRoutes } from "./modules";
+import passport from "passport";
+import transporter from "./modules/mail";
+import config from "config";
 
 const app = express();
 const PORT = process.env.PORT || 2000;
@@ -14,7 +17,33 @@ app.get("/", (req, res) => {
 
 app.use("/retailer", retailRoutes);
 app.use("/customer", customerRoutes);
+app.use("/sms", smsRoutes);
 app.use("/auth", authRoutes);
+app.post("/sendmail", (req, res) => {
+	const { to, message, subject } = req.body;
+	const mailOptions = {
+		from: `${config.get("username")}@gmail.com`,
+		to,
+		subject,
+		html: `<p>${message}</p>`,
+	};
+	try {
+		setTimeout(function() {
+			transporter.sendMail(mailOptions);
+		}, 0);
+
+		res.json({
+			msg: `email has been successfully sent to ${to}`,
+			status: true,
+		});
+	} catch (error) {
+		console.error(error.message);
+		res.json({
+			msg: `email has not been sent`,
+			status: false,
+		});
+	}
+});
 
 app.listen(PORT, () => {
   console.log("openbeats server up and running!");

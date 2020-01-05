@@ -1,4 +1,4 @@
 import { Retailer } from "./retailerSchema";
 import { Customer } from "./cutomerSchema";
-
-export { Retailer, Customer };
+import { SMSQueue } from "./smsQueueSchema";
+export { Retailer, Customer, SMSQueue };

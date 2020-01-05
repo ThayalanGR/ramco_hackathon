@@ -8,5 +8,7 @@
         "clientSecret": "d210ceeefb36c8bc58059bc29527c351",
         "callbackURL": "http://localhost:2000/auth/facebook/callback"
     },
-    "mongoURI": "mongodb://127.0.0.1:27017"
+    "mongoURI": "mongodb://127.0.0.1:27017",
+    "username": "noelimmanuel1998",
+    "gpword": "One2333@1968"
 }
