@@ -17,7 +17,8 @@ class Home extends Component {
     this.state = {
       retailerName: null,
       emailId: null,
-      _id: null
+      _id: null,
+      shortLink: null
     };
   }
   componentWillMount() {
@@ -29,14 +30,13 @@ class Home extends Component {
       this.setState({
         retailerName: loc.retailerName,
         emailId: loc.emailId,
-        _id: loc._id
+        _id: loc._id,
+        shortLink: `http://192.168.15.210:3000/r/${loc.retailerName.toLowerCase()}`
       });
     }
   }
 
-  componentDidMount() {
-    // let loc = JSON.parse(localStorage.getItem("retailerDetails"));
-  }
+  componentDidMount() {}
   logoutHandler() {
     localStorage.clear();
     this.setState({
@@ -93,7 +93,19 @@ class Home extends Component {
         <LeftNav />
         <div className="core-render-wrapper">
           <Switch>
-            <Route path="/" exact component={Core} />
+            <Route
+              path="/"
+              exact
+              component={() => {
+                return (
+                  <Core
+                    shortLink={this.state.shortLink}
+                    retailerName={this.state.retailerName}
+                    emailId={this.state.emailId}
+                  />
+                );
+              }}
+            />
             <Route path="/coupon" component={Coupon} />
             <Route path="/broadcast" component={Broadcast} />
             <Route path="/insights" component={Insights} />

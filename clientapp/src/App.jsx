@@ -10,6 +10,11 @@ export default class App extends Component {
           <Route component={Home} path="/r/:name" />
           <Route component={Callback} path="/callback/:name/:email" />
           <Route component={Success} exact path="/success" />
+          <Route
+            render={() => {
+              return <div>Requested url not found</div>;
+            }}
+          />
         </Switch>
       </Fragment>
     );

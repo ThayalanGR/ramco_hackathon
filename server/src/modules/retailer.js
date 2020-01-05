@@ -34,8 +34,8 @@ routes.post("/login", (req, res) => {
 
 routes.get("/getid/:name", async (req, res) => {
   const name = req.params.name;
-  let { _id } = await Retailer.findOne({ shortLink: name });
-  res.send({ retailerId: _id });
+  let data = await Retailer.findOne({ shortLink: name });
+  res.send(data);
 });
 
 routes.post("/register", (req, res) => {

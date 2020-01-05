@@ -32,4 +32,24 @@ body {
   top: 55px;
   left: 320px;
   color: dark;
+  padding: 20px;
+}
+
+.common-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.common-wrapper > img {
+  width: 50%;
+}
+
+.common-wrapper > p {
+  font-size: 25px;
+  font-weight: bold;
+  color: #4285f4;
+  opacity: 0.8;
 }

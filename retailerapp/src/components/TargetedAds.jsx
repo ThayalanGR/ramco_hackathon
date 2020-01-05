@@ -1,11 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import Coupon from "./Coupon";
 
 export default class TargetedAds extends Component {
-    render() {
-        return (
-            <div>targeted ads
-                
-            </div>
-        )
-    }
+  render() {
+    return <Coupon />;
+  }
 }
