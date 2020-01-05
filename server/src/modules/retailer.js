@@ -18,14 +18,28 @@ routes.get("/getall", (req, res) => {
   });
 });
 
+routes.post("/login", (req, res) => {
+  Retailer.findOne({ emailId: req.body.email }, function(err, data) {
+    if (err) {
+      res.send({ status: false, data: "Invalid Credentials!" });
+    } else {
+      console.log(data);
+
+      if (data.password !== req.body.password)
+        res.send({ status: false, data: "Invalid Credentials!" });
+      else res.send({ status: true, data: data });
+    }
+  });
+});
+
 routes.get("/getid/:name", async (req, res) => {
   const name = req.params.name;
   let { _id } = await Retailer.findOne({ shortLink: name });
   res.send({ retailerId: _id });
 });
 
-routes.post("/create", (req, res) => {
-  const { retailerName, emailId, mobileNo } = req.body;
+routes.post("/register", (req, res) => {
+  const { retailerName, emailId, mobileNo, password } = req.body;
   const retailer = new Retailer({
     retailerName,
     emailId,
@@ -33,15 +47,15 @@ routes.post("/create", (req, res) => {
     shortLink: retailerName
       .trim()
       .replace(/[^\w]/gi, "")
-      .toLowerCase()
+      .toLowerCase(),
+    password
   });
 
   retailer.save(function(err, docs) {
     if (err)
       res.send({
         status: false,
-        data: null,
-        log: err.toString()
+        data: err.toString()
       });
     res.send({
       status: true,

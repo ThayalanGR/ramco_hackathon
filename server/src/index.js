@@ -1,6 +1,6 @@
 import { dbconfig, middleware } from "./config";
 import express from "express";
-import { retailRoutes, customerRoutes, smsRoutes } from "./modules";
+import { retailRoutes, customerRoutes, smsRoutes, authRoutes } from "./modules";
 import passport from "passport";
 import transporter from "./modules/mail";
 import config from "config";
@@ -12,45 +12,13 @@ dbconfig();
 middleware(app);
 
 app.get("/", (req, res) => {
-	res.send("Hi from team .YAG");
+  res.send("Hi from team .YAG");
 });
 
 app.use("/retailer", retailRoutes);
 app.use("/customer", customerRoutes);
 app.use("/sms", smsRoutes);
-
-app.get(
-	"/auth/facebook",
-	passport.authenticate("facebook", { scope: ["email"] }),
-);
-
-app.get(
-	"/auth/facebook/callback",
-	passport.authenticate("facebook", { session: false }),
-	(req, res) => {
-		const payload = { customer: req.user };
-		res.redirect(
-			`http://localhost:3000/callback/${payload.customer.name}/${payload.customer.email}`,
-		);
-	},
-);
-app.get(
-	"/auth/google",
-	passport.authenticate("google", {
-		scope: ["email", "profile"],
-	}),
-);
-app.get(
-	"/auth/google/callback",
-	passport.authenticate("google", { session: false }),
-	(req, res) => {
-		const payload = { customer: req.user };
-		res.redirect(
-			`http://localhost:3000/callback/${payload.customer.name}/${payload.customer.email}`,
-		);
-	},
-);
-
+app.use("/auth", authRoutes);
 app.post("/sendmail", (req, res) => {
 	const { to, message, subject } = req.body;
 	const mailOptions = {
@@ -78,5 +46,5 @@ app.post("/sendmail", (req, res) => {
 });
 
 app.listen(PORT, () => {
-	console.log("openbeats server up and running!");
+  console.log("openbeats server up and running!");
 });

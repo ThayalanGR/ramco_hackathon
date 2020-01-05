@@ -8,7 +8,9 @@ const RetailerSchema = mongoose.Schema({
   emailId: String,
   mobileNo: Number,
   shortLink: String,
-  customers: Array
+  customers: Array,
+  password: String,
+  mobile: Number
 });
 
 var Retailer = mongoose.model("Retailer", RetailerSchema);

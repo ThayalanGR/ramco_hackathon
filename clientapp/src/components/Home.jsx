@@ -11,23 +11,22 @@ export default class Home extends Component {
 				localStorage.setItem("retailerId", data.retailerId);
 			});
 	}
-
-	render() {
-		return (
-			<div>
-				<div>company name</div>
-				<hr />
-				<div>
-					<b>oauth links</b>
-				</div>
-				<hr />
-				<div>
-					<a href="/"> google</a>
-				</div>
-				<div>
-					<a href="/">facebook</a>
-				</div>
-			</div>
-		);
-	}
+  render() {
+    return (
+      <div>
+        <div>company name</div>
+        <hr />
+        <div>
+          <b>oauth links</b>
+        </div>
+        <hr />
+        <div>
+          <a href="http://localhost:2000/auth/google"> google</a>
+        </div>
+        <div>
+          <a href="http://localhost:2000/auth/facebook">facebook</a>
+        </div>
+      </div>
+    );
+  }
 }
