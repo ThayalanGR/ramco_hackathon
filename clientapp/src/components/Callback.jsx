@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 
 class Callback extends Component {
   componentDidMount() {
-    fetch("http://localhost:8000/customer/create", {
+    fetch("http://localhost:2000/customer/create", {
       method: "POST",
       headers: {
         Accept: "application/json",

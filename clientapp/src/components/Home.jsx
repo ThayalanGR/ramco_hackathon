@@ -21,10 +21,10 @@ export default class Home extends Component {
         </div>
         <hr />
         <div>
-          <a href="/"> google</a>
+          <a href="http://localhost:2000/auth/google"> google</a>
         </div>
         <div>
-          <a href="/">facebook</a>
+          <a href="http://localhost:2000/auth/facebook">facebook</a>
         </div>
       </div>
     );

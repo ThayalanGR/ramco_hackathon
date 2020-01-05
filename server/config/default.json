@@ -4,8 +4,8 @@
         "clientSecret": "5SsBLfvwqqrs0r1se2Y3noix"
     },
     "facebook": {
-        "clientId": "472236707038220",
-        "clientSecret": "e70e9c141369a30ba42025ca0963c648",
+        "clientId": "733861717017504",
+        "clientSecret": "d210ceeefb36c8bc58059bc29527c351",
         "callbackURL": "http://localhost:2000/auth/facebook/callback"
     },
     "mongoURI": "mongodb://127.0.0.1:27017"
