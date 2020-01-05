@@ -4,11 +4,21 @@ import { SMSQueue } from "../models/index";
 const routes = Router();
 
 routes.post("/create", async (req, res) => {
-	const { mobile, message } = req.body;
+	const { mobile, message, mobileList } = req.body;
 	try {
-		const sms = new SMSQueue({ mobile, message });
-		await sms.save();
-		res.send(sms);
+		if (!mobileList) {
+			const sms = new SMSQueue({ mobile, message });
+			await sms.save();
+			res.send(sms);
+		} else {
+			let sucessList = [];
+			mobileList.forEach(async mobile => {
+				const sms = new SMSQueue({ mobile, message });
+				await sms.save();
+				sucessList.unshift(sms);
+			});
+			res.send({ msg: "Successfully sent to the list of numbers" });
+		}
 	} catch (error) {
 		console.error(error.message);
 		res.status(500).send({ msg: "Server Error" });
