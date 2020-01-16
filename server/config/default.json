@@ -1,19 +1,19 @@
 {
     "google": {
-        "clientId": "2800805513-or82jtgi9ug4bskbftp792o90so12f1d.apps.googleusercontent.com",
-        "clientSecret": "5SsBLfvwqqrs0r1se2Y3noix"
+        "clientId": "your_client_id",
+        "clientSecret": "your_client_secret"
     },
     "facebook": {
-        "clientId": "733861717017504",
-        "clientSecret": "d210ceeefb36c8bc58059bc29527c351",
+        "clientId": "your_client_id",
+        "clientSecret": "your_client_secret",
         "callbackURL": "http://localhost:2000/auth/facebook/callback"
     },
     "mongoURI": "mongodb://127.0.0.1:27017",
-    "username": "noelimmanuel1998",
-    "gpword": "One2333@1968",
+    "username": "youremail",
+    "gpword": "yourpassword",
     "twilio": {
-        "account_sid": "AC75ea990d371c1634f826a60e28ee9f5c",
-        "auth_token": "1c5fd50180c7f8f9ef4ad6ef80cb703e"
+        "account_sid": "your_sid",
+        "auth_token": "your_token"
     },
-    "liveServerUrl": "https://ce6da12c.ngrok.io"
+    "liveServerUrl": "your_ngrok_live_server_url"
 }

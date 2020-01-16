@@ -31,7 +31,9 @@ class Home extends Component {
         retailerName: loc.retailerName,
         emailId: loc.emailId,
         _id: loc._id,
-        shortLink: `http://192.168.15.210:3000/r/${loc.retailerName.toLowerCase()}`
+        shortLink: `http://192.168.15.210:3000/r/${loc.retailerName
+          .toLowerCase()
+          .replace(" ", "")}`
       });
     }
   }
@@ -102,6 +104,7 @@ class Home extends Component {
                     shortLink={this.state.shortLink}
                     retailerName={this.state.retailerName}
                     emailId={this.state.emailId}
+                    id={this.state._id}
                   />
                 );
               }}

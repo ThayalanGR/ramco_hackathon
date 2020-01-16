@@ -9,7 +9,7 @@
 
 body {
   width: 100vw;
-  height: 100vh;
+  height: auto;
   overflow-x: hidden;
   position: relative;
   box-sizing: border-box;
@@ -29,6 +29,7 @@ body {
   position: fixed;
   width: calc(100vw - 320px);
   height: calc(100vh - 55px);
+  overflow-y: auto;
   top: 55px;
   left: 320px;
   color: dark;
@@ -52,4 +53,9 @@ body {
   font-weight: bold;
   color: #4285f4;
   opacity: 0.8;
+}
+
+.customers-table-body {
+  height: 100%;
+  overflow-y: auto;
 }

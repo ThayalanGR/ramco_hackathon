@@ -78,5 +78,5 @@ app.get("/:phoneno", (req, res) => {
   );
 });
 app.listen(PORT, () => {
-  console.log("openbeats server up and running!");
+  console.log("RetailsPro server up and running!");
 });
